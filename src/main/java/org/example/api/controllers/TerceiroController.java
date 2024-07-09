@@ -1,6 +1,7 @@
 package org.example.api.controllers;
 
 import org.example.api.entidades.TerceiroEntidade;
+import org.example.api.injectable.ToBeInjected;
 import org.example.api.services.TerceiroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,10 +12,14 @@ import org.springframework.web.bind.annotation.*;
 public class TerceiroController {
 
     @Autowired
+    private ToBeInjected injectable;
+
+    @Autowired
     private TerceiroService terceiroService;
 
     @GetMapping
     public Object getTerceiros() {
+        injectable.injectedHello();
         return terceiroService.listarTerceiros();
     }
     @PostMapping
