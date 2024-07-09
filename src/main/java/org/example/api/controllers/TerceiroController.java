@@ -1,23 +1,32 @@
 package org.example.api.controllers;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import org.example.api.repositories.TerceiroRepository;
+import org.example.api.entidades.TerceiroEntidade;
 import org.example.api.services.TerceiroService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/terceiros")
 public class TerceiroController {
 
     @Autowired
     private TerceiroService terceiroService;
 
-    @GetMapping("/teste")
-    public Object getTeste() {
+    @GetMapping
+    public Object getTerceiros() {
         return terceiroService.listarTerceiros();
+    }
+    @PostMapping
+    public ResponseEntity<TerceiroEntidade> create(@RequestBody TerceiroEntidade terceiro){
+        return ResponseEntity.ok(terceiroService.createTerceiro(terceiro));
+    }
+    @PutMapping
+    public ResponseEntity<TerceiroEntidade> update(@RequestBody TerceiroEntidade terceiro){
+        if(terceiroService.checkExistenceById(terceiro.getCnpj_cpf())){
+            return ResponseEntity.ok(terceiroService.updateTerceiro(terceiro));
+        }else{
+            return ResponseEntity.notFound().build();
+        }
     }
 }

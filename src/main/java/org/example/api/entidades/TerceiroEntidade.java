@@ -5,10 +5,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
 
-@Entity
-@Getter
-@Setter
 @Table(name = "terceiros")
+@Entity(name="terceiros")
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 public class TerceiroEntidade {
     @Id
     private String cnpj_cpf;
