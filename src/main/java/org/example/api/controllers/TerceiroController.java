@@ -29,4 +29,8 @@ public class TerceiroController {
             return ResponseEntity.notFound().build();
         }
     }
+    @DeleteMapping
+    public ResponseEntity<Boolean> delete(@RequestBody TerceiroEntidade terceiro){
+        return ResponseEntity.ok(terceiroService.deleteTerceiro(terceiro.getCnpj_cpf()));
+    }
 }

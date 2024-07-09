@@ -5,6 +5,7 @@ import org.example.api.DTOS.TerceiroDTO;
 import org.example.api.entidades.TerceiroEntidade;
 import org.example.api.repositories.TerceiroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,5 +30,10 @@ public class TerceiroService {
 
     public TerceiroEntidade updateTerceiro(TerceiroEntidade terceiro){
         return terceiroRepository.save(terceiro);
+    }
+
+    public Boolean deleteTerceiro(String cnpj_cpf){
+        terceiroRepository.deleteById(cnpj_cpf);
+        return true;
     }
 }
