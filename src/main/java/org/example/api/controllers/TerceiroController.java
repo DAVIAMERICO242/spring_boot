@@ -3,9 +3,14 @@ package org.example.api.controllers;
 import org.example.api.entidades.TerceiroEntidade;
 import org.example.api.injectable.ToBeInjected;
 import org.example.api.services.TerceiroService;
+import org.springframework.beans.FatalBeanException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @RestController
 @RequestMapping("/terceiros")
@@ -19,6 +24,7 @@ public class TerceiroController {
 
     @GetMapping
     public Object getTerceiros() {
+
         injectable.injectedHello();
         return terceiroService.listarTerceiros();
     }
@@ -39,3 +45,4 @@ public class TerceiroController {
         return ResponseEntity.ok(terceiroService.deleteTerceiro(cnpjCpf));
     }
 }
+

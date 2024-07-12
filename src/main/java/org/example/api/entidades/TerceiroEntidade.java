@@ -8,8 +8,6 @@ import lombok.*;
 @Table(name = "terceiros")
 @Entity(name="terceiros")
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode
 public class TerceiroEntidade {
     @Id
