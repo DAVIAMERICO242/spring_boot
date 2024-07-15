@@ -34,7 +34,7 @@ public class AuthenticationController {
             return ResponseEntity.ok(new LoginResponseDTO(token));
         } catch (Exception e) {
             System.out.println(e);
-            return ResponseEntity.status(401).build();
+            return ResponseEntity.status(401).body(e);
         }
     }
 

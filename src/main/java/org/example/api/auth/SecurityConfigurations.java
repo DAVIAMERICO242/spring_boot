@@ -28,7 +28,9 @@
                     .csrf(csrf -> csrf.disable())
                     .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                     .authorizeHttpRequests(authorize -> authorize
-                            .requestMatchers( new AntPathRequestMatcher( "/login"),new AntPathRequestMatcher( "/register")).permitAll()
+                            .requestMatchers( new AntPathRequestMatcher( "/login")).permitAll()
+                            .requestMatchers( new AntPathRequestMatcher( "/register")).hasRole("ADMIN")
+                            .requestMatchers( new AntPathRequestMatcher( "/change_user")).hasRole("ADMIN")
                             .anyRequest().authenticated()
                     )
                     .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
