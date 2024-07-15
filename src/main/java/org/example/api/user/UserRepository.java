@@ -1,6 +1,5 @@
-package org.example.api.repositories;
+package org.example.api.user;
 
-import org.example.api.entidades.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 

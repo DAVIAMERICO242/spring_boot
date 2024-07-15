@@ -1,4 +1,4 @@
-package org.example.api.entidades.user;
+package org.example.api.user;
 
 public enum UserRole {
     ADMIN("admin"),

@@ -1,4 +1,4 @@
-package org.example.api.entidades;
+package org.example.api.terceiros;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

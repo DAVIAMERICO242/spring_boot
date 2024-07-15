@@ -1,15 +1,7 @@
-package org.example.api.services;
+package org.example.api.terceiros;
 
-import lombok.AllArgsConstructor;
-import org.example.api.DTOS.TerceiroDTO;
-import org.example.api.entidades.TerceiroEntidade;
-import org.example.api.repositories.TerceiroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TerceiroService {
