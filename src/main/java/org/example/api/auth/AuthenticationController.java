@@ -1,17 +1,17 @@
 package org.example.api.auth;
 import jakarta.validation.Valid;
+import org.example.api.auth.DTOS.AuthenticationDTO;
+import org.example.api.auth.DTOS.LoginResponseDTO;
+import org.example.api.auth.DTOS.RegisterDTO;
+import org.example.api.auth.services.TokenService;
 import org.example.api.entidades.user.User;
 import org.example.api.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Arrays;
-import java.util.List;
 
 @RestController
 @RequestMapping

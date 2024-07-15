@@ -1,4 +1,4 @@
-package org.example.api.auth;
+package org.example.api.auth.services;
 
 import org.example.api.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
