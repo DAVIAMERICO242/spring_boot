@@ -1,23 +1,23 @@
-# Use a imagem oficial do Maven para compilar e empacotar a aplicação
+# O FROM inicia um novo "container" (intermediario), esse container buildara o projeto
 FROM maven:3.8.4-openjdk-17 AS build
 
 # Define o diretório de trabalho dentro do contêiner
 WORKDIR /app
 
-# Copia o arquivo pom.xml e os arquivos de dependências
+# Copia o arquivo pom.xml da minha maquina e joga no container atual
 COPY pom.xml .
 COPY src ./src
 
 # Compila e empacota a aplicação
 RUN mvn clean package -DskipTests
 
-# Usa uma imagem base menor para o JDK 17
+# O container abaixo pegara o projeto buildado do outro container e o executara baseado no jdk 17
 FROM openjdk:17-jdk-slim
 
-# Define o diretório de trabalho dentro do contêiner
+# Define o diretório de trabalho dentro do contêiner ATUAL
 WORKDIR /app
 
-# Copia o jar do estágio anterior
+# Copia o jar do container anterior para esse conteiner
 COPY --from=build /app/target/*.jar app.jar
 
 # Expõe a porta 8888
